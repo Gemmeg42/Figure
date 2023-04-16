@@ -1,0 +1,1 @@
+__all__ = ['gen_triangle', 'gen_rectangle', 'gen_hexagon']
