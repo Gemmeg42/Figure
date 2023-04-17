@@ -16,6 +16,10 @@ def task_2():
     triangle.gener(X)
 
 def task_3():
+    pass
+
+def task_4():
+    pass
 
 
 task_2()
