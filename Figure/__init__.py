@@ -1,1 +1,1 @@
-__all__ = ['gen_triangle', 'gen_rectangle', 'gen_hexagon']
+__all__ = ['triangle.py', 'rectangle.py', 'hexagon.py']
