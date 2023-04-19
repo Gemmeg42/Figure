@@ -1,10 +1,10 @@
 import dif_types
 from Figure import triangle
+from dif_types import tr_symmetry
 
 
 def task_1():
-    a = [20, 40, 60]
-    dif_types.tr_rotate('tr', [20, 40, 60])
+    dif_types.tr_translate(3, 20, 'tr')
 
 def task_2():
     a = [40, 0]
@@ -16,10 +16,7 @@ def task_2():
     triangle.gener(X)
 
 def task_3():
-    pass
+    dif_types.tr_symmetry('tr')
 
 def task_4():
-    pass
-
-
-task_2()
+    dif_types.tr_homothety('re')
