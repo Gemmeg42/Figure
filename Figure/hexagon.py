@@ -1,13 +1,15 @@
 import matplotlib.pyplot as plt
 from matplotlib.patches import RegularPolygon
 import numpy as np
+import itertools as it
 import math as m
 
 
 def work(c, r, step, al, rat=0):
     X = []
+    move1, move2 = it.count(c[0], 3 * r * m.cos(m.radians(al))), it.count(c[1], + 3 * r * m.sin(m.radians(al)))
     for i in range(step):
-        X += [RegularPolygon((c[0] + 3*r*i*m.cos(m.radians(al)), c[1]+ 3*r*i*m.sin(m.radians(al))), numVertices=6, radius=r, edgecolor='red', orientation=rat)]
+        X += [RegularPolygon((next(move1), next(move2)), numVertices=6, radius=r, edgecolor='red', orientation=rat)]
     return X
 def gener(X):
     fig, ax = plt.subplots(1)

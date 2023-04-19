@@ -9,42 +9,44 @@ from Figure import hexagon
 def tr_translate(num, size, typ):
     a = [int(input('x - ')), int(input('y - '))]
     X = []
+    move = it.count(a[1],size)
     if typ == 'tr':
         r, s, al = int(input('радиус - ')), int(input('кол-во - ')), int(input('угол наклона: '))
         for i in range(num):
-            b = [a[0], a[1] + size * i]
+            b = [a[0], next(move)]
             X += triangle.work(b, r, s, al=al)
         triangle.gener(X)
     elif typ == 're':
         h, w, kol, al = int(input('длина - ')), int(input('высота - ')), int(input('кол-во: ')), int(input('угол наклона: '))
         for i in range(num):
-            b = [a[0], a[1] + size * i]
+            b = [a[0], next(move)]
             X += rectangle.work(h, w, kol, b, al=al)
         rectangle.gener(X, h, w)
     else:
         r, s, al = int(input('радиус - ')), int(input('кол-во - ')), int(input('угол наклона: '))
         for i in range(num):
-            b = [a[0], a[1] + size * i]
+            b = [a[0], next(move)]
             X += hexagon.work(b, r, s, al=al)
         hexagon.gener(X)
 
 def tr_rotate(typ, al):
     X = []
     a = [int(input('x - ')), int(input('y - '))]
+    al = it.cycle(al)
     if typ == 'tr':
         r, s = int(input('радиус - ')), int(input('кол-во - '))
         for i in range(len(al)):
-            X += triangle.work(a, r, s, al=al[i])
+            X += triangle.work(a, r, s, al=next(al))
         triangle.gener(X)
     elif typ == 're':
         h, w, kol = int(input('длина - ')), int(input('высота - ')), int(input('кол-во: '))
         for i in range(len(al)):
-            X += rectangle.work(h, w, kol, a, al=al[i])
+            X += rectangle.work(h, w, kol, a, al=next(al))
         rectangle.gener(X, h, w)
     else:
         r, s = int(input('радиус - ')), int(input('кол-во - '))
         for i in range(len(al)):
-            X += hexagon.work(a, r, s, al=al[i])
+            X += hexagon.work(a, r, s, al=next(al))
         hexagon.gener(X)
 
 
@@ -101,3 +103,5 @@ def tr_homothety(typ):
             r = r*t
             a[0], a[1] = 2*a[0]*t, 2*a[1]*t
         hexagon.gener(X)
+
+tr_homothety('tr')
